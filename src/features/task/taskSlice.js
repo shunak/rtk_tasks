@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiUrl = "http://localhost:8000/api/tasks";
+const apiUrl = "http://localhost:8000/api/tasks/";
 const token = localStorage.localJWT;
 
 // implement async method
@@ -73,7 +73,7 @@ const taskSlice = createSlice({
     editTask(state, action) {
       state.editedTask = action.payload;
     },
-    selectedTask(state, action) {
+    selectTask(state, action) {
       state.selectedTask = action.payload;
     },
   },
@@ -112,7 +112,7 @@ const taskSlice = createSlice({
 
 export const { editTask, selectTask } = taskSlice.actions;
 
-export const selectSlectedTask = (state) => state.task.selectedTask;
+export const selectSelectedTask = (state) => state.task.selectedTask;
 export const selectEditedTask = (state) => state.task.editTask;
 export const selectTasks = (state) => state.task.tasks;
 
